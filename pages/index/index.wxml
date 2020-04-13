@@ -1,0 +1,3 @@
+<button catchtap="show">显示</button>
+
+<drawer title="标题" show="{{show}}" data="{{data}}" bind:clickItem="clickItem" bind:hide="hide" />

@@ -1,0 +1,16 @@
+<view class="drawer" catchtap="hide" style="display: {{ show ? 'block': 'none'}}">
+  <view class="drawer-main" style="transform: {{transformStyle}};" animation="{{ani}}">
+    <view class="drawer-title">{{title}}</view>
+    <view class="drawer-panels">
+      <view class="drawer-panel" wx:for="{{data}}" wx:key="panelIdx" wx:for-item="panel" wx:for-index="panelIdx" style="display:{{panel.length ? 'block': 'none'}}">
+        <view class="drawer-scroll-wrapper">
+          <scroll-view scroll-y="true" class="drawer-scroll">
+            <view class="drawer-list">
+              <text class="drawer-item {{selectIndexes[panelIdx].panelIndex === panelIdx  && selectIndexes[panelIdx].panelChildIndex === index? 'drawer-item_active' : ''}}" wx:for="{{panel}}" wx:key="index" catchtap="clickItem" data-item="{{item}}" data-panel-and-child-idx="{{[panelIdx,index]}}">{{item.text}}</text>
+            </view>
+          </scroll-view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
